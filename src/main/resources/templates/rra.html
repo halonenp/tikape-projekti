@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>RuokaRaakaAine</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <h1>Tasks</h1>
+
+        <ul>
+            <li th:each="RuokaRaakaAine : ${ruokaraakaaine}">
+                <span th:text="${Ruokaraakaaine.id}">RuokaRaakaAine</span>
+                <form th:action="@{~/ruokaraakaaine/{id}(id=${ruokaraakaaine.id})}" method="post">
+                    <select name="raakaaineId">
+                        <option th:each="raakaaine: ${raakaaine}" th:value="${raakaaine.id}" th:text="${raakaaie.nimi}">
+                            user
+                        </option>
+                    </select>
+                    <input type="submit" value="Lisää raaka-aine!"/>
+                </form>
+            </li>
+        </ul>
+
+        <h2>Add new task</h2>
+
+        <form method="POST" action="/rra">
+            <input type="text" name="name"/><br/>
+            <input type="submit" value="Add!"/>
+        </form>
+    </body>
+</html>
